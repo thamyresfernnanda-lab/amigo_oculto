@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Segredo do Amigo Oculto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <span class="eyebrow">AMIGO OCULTO, DE VERDADE</span>
+        <h1>Um segredo<br /><em>bem guardado.</em></h1>
+        <p>Faça o sorteio e compartilhe cada revelação em privado. Cada pessoa recebe um link único para descobrir apenas o próprio amigo oculto.</p>
+        <div class="privacy-note"><span>✦</span><p>Os links são credenciais secretas, com token aleatório, expiração e visualização única.</p></div>
+      </section>
+
+      <section class="card" id="app">
+        <div id="drawView">
+          <div class="card-head"><div><span class="step">01 — PARTICIPANTES</span><h2>Quem vai brincar?</h2></div><span class="count"><b id="count">0</b> pessoas</span></div>
+          <p class="hint">Informe o nome e o WhatsApp de cada participante. Use o número com DDD.</p>
+          <form id="personForm" class="person-form" autocomplete="off">
+            <input id="name" maxlength="50" placeholder="Nome da pessoa" required />
+            <input id="phone" inputmode="tel" maxlength="20" placeholder="WhatsApp (DDD + número)" required />
+            <button class="add" aria-label="Adicionar participante" type="submit">+</button>
+          </form>
+          <ul id="people" class="people" aria-live="polite"></ul>
+          <div class="rules"><span>🔒</span><p>O sorteio só fica disponível com ao menos 3 pessoas. Ninguém poderá tirar a si mesmo.</p></div>
+          <button id="drawButton" class="draw-button" type="button" disabled>Realizar sorteio <span>→</span></button>
+        </div>
+
+        <div id="shareView" hidden>
+          <div class="success-icon">✓</div>
+          <span class="step">02 — SORTEIO CONCLUÍDO</span>
+          <h2>Está tudo pronto!</h2>
+          <p class="hint">Compartilhe cada link apenas com a pessoa indicada. O WhatsApp abre uma mensagem pronta, mas o envio é sempre confirmado por você.</p>
+          <div id="shareList" class="share-list"></div>
+          <button id="restart" class="secondary" type="button">Fazer novo sorteio</button>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="resultDialog">
+      <div class="result-content"><span class="step">SEU AMIGO OCULTO É...</span><h2 id="drawnName"></h2><p>Guarde este segredo até a hora da troca de presentes. 🤫</p><button id="closeResult" class="draw-button">Entendi!</button></div>
+    </dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
